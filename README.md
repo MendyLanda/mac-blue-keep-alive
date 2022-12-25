@@ -1,4 +1,4 @@
-# mac-blue-kepp-alive
+# mac-blue-keep-alive
 Bluetooth connection maintainer
 This script will keep a bluetooth connection alive by checking if the device is connected every X minutes and if not, it will try to connect to it.
 
