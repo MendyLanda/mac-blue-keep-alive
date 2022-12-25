@@ -2,8 +2,8 @@
 Bluetooth connection maintainer
 
 # Requirements
-- cli [blueutil](https://github.com/toy/blueutil) must be installed
-  - install with `brew install blueutil`
+- [blueutil](https://github.com/toy/blueutil)
+- [python3](https://www.python.org/downloads/)
 ## Usage
 1. Install [blueutil](https://github.com/toy/blueutil) with `brew install blueutil`
 2. Clone this repo
