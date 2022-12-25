@@ -11,6 +11,9 @@ Bluetooth connection maintainer
 4. modify run.sh to include your bluetooth device name and other settings
 5. run `chmod +x run.sh && ./run.sh`
 
+# How to stop the script
+- run `crontab -e` and remove the line that was added by the script
+
 # Configuration
 - `DEVICE_NAME` - the name of the bluetooth device you want to keep alive
 - `CHECK_INTERVAL` - the interval in minutes to check if the device is connected
