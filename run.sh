@@ -1,32 +1,37 @@
-# ---------------------------------------------------------------
-# Basic configurations
-# ---------------------------------------------------------------
-
-# set variable device_name to the name of the device you want to use
-DEVICE_NAME="REPLACE WITH DEVICE NAME"
-
-# ---------------------------------------------------------------
-# Advance configurations
-# ---------------------------------------------------------------
-
-# set variable check_interval to the number of minutes between checks
-# value must be between 1 and 59
-CHECK_INTERVAL="1"
-
-# set variable path_to_python_script to the path to the python script main.py
-# default is the current directory main.py (pwd/main.py)
-PATH_TO_SCRIPT="$(pwd)/main.py"
-
-# set variable python_run to the name of python executable
-# in most cases, this will be python3 or python
-PYTHON_RUNNER="python3"
-
-# ---------------------------------------------------------------
-# don't edit below this line unless you know what you're doing
-# ---------------------------------------------------------------
-
+#!/bin/bash
 set -e
 
-# create a cron job to run the python script main.py every CHECK_INTERVAL minutes
-# PATH is added to the crontab to ensure that the python executable and blueutil can be found
-(crontab -l 2>/dev/null; echo "PATH=$PATH\n*/$CHECK_INTERVAL * * * * $PYTHON_RUNNER $PATH_TO_SCRIPT '$DEVICE_NAME' >/tmp/stdout.log 2>/tmp/stderr.log") | crontab -
+# =====================================================
+# Basic configurations
+# =====================================================
+
+# Set variable DEVICE_NAME to the name of the device you want to use
+DEVICE_NAME="REPLACE WITH DEVICE NAME"
+
+
+# =====================================================
+# Advance configurations
+# =====================================================
+
+# Set variable CHECK_INTERVAL to the number of minutes between checks
+# Value must be between 1 and 59
+CHECK_INTERVAL=1
+
+# Set variable PATH_TO_SCRIPT to the path to the python script main.py
+# Default is the current directory main.py (pwd/main.py)
+PATH_TO_SCRIPT="$(pwd)/main.py"
+
+# Set variable PYTHON_RUNNER to the name of the python executable
+# In most cases, this will be python3 or python
+PYTHON_RUNNER="python3"
+
+
+# =====================================================
+# Don't edit below this line unless you know what you're doing
+# =====================================================
+
+( crontab -l 2>/dev/null; echo -e "PATH=$PATH \n*/$CHECK_INTERVAL * * * * $PYTHON_RUNNER $PATH_TO_SCRIPT '$DEVICE_NAME' >/tmp/stdout.log 2>/tmp/stderr.log") | crontab - || {
+  # Print an error message if the command fails
+  echo "An error occurred while setting up the cron job." >&2
+  exit 1
+}
