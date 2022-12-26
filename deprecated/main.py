@@ -1,8 +1,9 @@
-# a small program for connecting to a bluetooth device given its name
+# Moved to legacy folder since I migrated the script to bash only. This is the python version.
 
+
+# a small program for connecting to a bluetooth device given its name
 import argparse
 import subprocess
-import sys
 import json
 
 # Parse arguments
