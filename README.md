@@ -14,7 +14,7 @@ I have a bluetooth speaker that I use with my mac. I noticed that when my mac go
 3. Clone this repo `git clone https://github.com/MendyLanda/mac-blue-keep-alive.git`
 4. cd into the repo folder `cd mac-blue-keep-alive`
 5. Modify run.sh to include your bluetooth device name and other settings
-6. Run `chmod +x run.sh && ./run.sh`
+6. Run `chmod +x run.bash && ./run.bash`
 
 ## How to stop the script
 - run `crontab -e` and remove the line that was added by the script
